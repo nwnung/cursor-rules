@@ -1,0 +1,122 @@
+# PROJECT OVERVIEW
+- The code was write in English but all the conversation between us is en SIMPLE SPANISH!
+- Write clean, simple, readable code
+- Implement features in the simplest possible way
+- Keep files small and focused (<200 lines)
+- Test after every meaningful change
+- Focus on core functionality before optimization
+- Use clear, consistent naming
+- Think thoroughly before coding. Write 2-3 reasoning paragraphs.
+- ALWAYS write simple, clean and modular code.
+- use clear and easy-to-understand language. write in short sentences.
+
+# TECH STACK
+- nextjs 15 (app router y Javascript puro)
+- supabase (con Javascript) (auth, db, queries)
+- tailwindcss v4
+- shadcn (con Javascript) (latest version)
+
+# Our. env variables
+.env
+.env.local
+.env*
+
+# CURRENT FILE STRUCTURE
+tree -L 4 -a -I "node_modules|.git|.next" .
+.
+howen/
+├── .env.local
+├── .gitignore
+├── package.json
+├── public/
+│   ├── images/
+│   └── favicon.ico
+├── src/
+│   ├── app/
+│   │   ├── (application)/
+│   │   │   ├── app/
+│   │   │   │   ├── dashboard/
+│   │   │   │   │   ├── page.js
+│   │   │   │   │   └── settings/
+│   │   │   │   │       └── page.js
+│   │   │   │   ├── layout.js
+│   │   │   │   └── loading.js
+│   │   │   └── api/
+│   │   │       └── application/
+│   │   │           └── route.js
+│   │   ├── (marketing)/
+│   │   │   ├── page.js
+│   │   │   ├── pricing/
+│   │   │   │   └── page.js
+│   │   │   ├── about/
+│   │   │   │   └── page.js
+│   │   │   └── layout.js
+│   │   ├── (auth)/
+│   │   │   ├── login/
+│   │   │   │   └── page.js
+│   │   │   ├── signup/
+│   │   │   │   └── page.js
+│   │   │   ├── forgot-password/
+│   │   │   │   └── page.js
+│   │   │   └── layout.js
+│   │   ├── (common)/
+│   │   │   ├── 404/
+│   │   │   │   └── page.js
+│   │   │   ├── 500/
+│   │   │   │   └── page.js
+│   │   │   └── layout.js
+│   │   ├── api/
+│   │   │   ├── auth/
+│   │   │   │   └── route.js
+│   │   │   └── supabase/
+│   │   │       └── client.js
+│   │   ├── components/
+│   │   │   ├── ui/ (shadcn/ui components)
+│   │   │   │   └── ...
+│   │   │   ├── auth/
+│   │   │   │   ├── LoginForm.js
+│   │   │   │   └── SignupForm.js
+│   │   │   ├── marketing/
+│   │   │   │   ├── Header.js
+│   │   │   │   └── Footer.js
+│   │   │   ├── application/
+│   │   │   │   ├── Sidebar.js
+│   │   │   │   └── Navbar.js
+│   │   │   └── shared/
+│   │   │       ├── ThemeToggle.js
+│   │   │       └── LoadingSpinner.js
+│   │   ├── hooks/
+│   │   │   ├── useAuth.js
+│   │   │   └── useTheme.js
+│   │   ├── lib/
+│   │   │   ├── supabaseClient.js
+│   │   │   ├── constants.js
+│   │   │   └── utils.js
+│   │   ├── styles/
+│   │   │   └── globals.css
+│   │   └── layout.js
+├── tailwind.config.js
+├── postcss.config.js
+└── jsconfig.json
+
+# IMPORTANT
+- repeat the most important instructions
+
+# ERROR FIXING PROCESS
+- DO NOT JUMP TO CONCLUSIONS! Consider multiple possible causes before deciding.
+- Explain the problem in plain Spanish!
+- Make minimal necessary changes, changing as few lines of code as possible
+- in case of strange errors, ask the user to perform a Perplexity web search to find the latest up-to-date information
+
+# BUILDING PROCESS
+- Verify each new feature works by telling the user how to test it
+- DO NOT write complicated and confusing code. Opt for the simple & modular approach.
+- when not sure what to do, tell the user to perform a web search
+
+# COMMENTS
+- ALWAYS try to add more helpful and explanatory comments into our code
+- NEVER delete old comments - unless they are obviously wrong / obsolete
+- Include LOTS of explanatory comments in your code. ALWAYS write well-documented code.
+- Document all changes and their reasoning IN THE COMMENTS YOU WRITE
+- when writing comments, use clear and easy-to-understand language and write in short sentences.
+
