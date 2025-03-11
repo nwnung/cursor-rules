@@ -1,3 +1,9 @@
-## App: Howen
+# App: Boulerplate to micro saas rules
 
-Read post and posted in if you login.
+### Stack:
+- NEXTJS
+- Tailwindcss
+- Supabase
+
+### Install
+`npm i`
