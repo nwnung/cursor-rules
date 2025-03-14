@@ -1,122 +1,124 @@
-# PROJECT OVERVIEW
-- The code was write in English but all the conversation between us is en SIMPLE SPANISH!
-- Write clean, simple, readable code
-- Implement features in the simplest possible way
-- Keep files small and focused (<200 lines)
-- Test after every meaningful change
-- Focus on core functionality before optimization
-- Use clear, consistent naming
-- Think thoroughly before coding. Write 2-3 reasoning paragraphs.
-- ALWAYS write simple, clean and modular code.
-- use clear and easy-to-understand language. write in short sentences.
 
-# TECH STACK
-- nextjs 15 (app router y Javascript puro)
-- supabase (con Javascript) (auth, db, queries)
-- tailwindcss v4
-- shadcn (con Javascript) (latest version)
+# RESUMEN DEL PROYECTO
+El código está escrito en inglés, ¡pero toda la conversación entre nosotros es en ESPAÑOL SIMPLE!
+Escribe código limpio, simple y fácil de leer.
+Implementa características de la manera más sencilla posible.
+Mantén los archivos pequeños y enfocados (<200 líneas).
+Prueba después de cada cambio significativo.
+Enfócate en la funcionalidad principal antes de optimizar.
+Usa nombres claros y consistentes.
+Piensa bien antes de programar. Escribe 2-3 párrafos de razonamiento.
+SIEMPRE escribe código simple, limpio y modular.
+Usa un lenguaje claro y fácil de entender. Escribe en frases cortas.
 
-# Our. env variables
+# TECNOLOGÍAS
+Next.js 15 (App Router y Javascript puro)
+Supabase (con Javascript) (autenticación, base de datos, consultas)
+TailwindCSS v4
+ShadCN (con Javascript) (última versión)
+
+# NUESTRAS VARIABLES DE ENTORNO
 .env
 .env.local
 .env*
 
-# CURRENT FILE STRUCTURE
+# ESTRUCTURA ACTUAL DE ARCHIVOS
 tree -L 4 -a -I "node_modules|.git|.next" .
 .
-howen/
+aplication-name/
 ├── .env.local
 ├── .gitignore
 ├── package.json
 ├── public/
-│   ├── images/
-│   └── favicon.ico
+│ ├── images/
+│ └── favicon.ico
 ├── src/
-│   ├── app/
-│   │   ├── (application)/
-│   │   │   ├── app/
-│   │   │   │   ├── dashboard/
-│   │   │   │   │   ├── page.js
-│   │   │   │   │   └── settings/
-│   │   │   │   │       └── page.js
-│   │   │   │   ├── layout.js
-│   │   │   │   └── loading.js
-│   │   │   └── api/
-│   │   │       └── application/
-│   │   │           └── route.js
-│   │   ├── (marketing)/
-│   │   │   ├── page.js
-│   │   │   ├── pricing/
-│   │   │   │   └── page.js
-│   │   │   ├── about/
-│   │   │   │   └── page.js
-│   │   │   └── layout.js
-│   │   ├── (auth)/
-│   │   │   ├── login/
-│   │   │   │   └── page.js
-│   │   │   ├── signup/
-│   │   │   │   └── page.js
-│   │   │   ├── forgot-password/
-│   │   │   │   └── page.js
-│   │   │   └── layout.js
-│   │   ├── (common)/
-│   │   │   ├── 404/
-│   │   │   │   └── page.js
-│   │   │   ├── 500/
-│   │   │   │   └── page.js
-│   │   │   └── layout.js
-│   │   ├── api/
-│   │   │   ├── auth/
-│   │   │   │   └── route.js
-│   │   │   └── supabase/
-│   │   │       └── client.js
-│   │   ├── components/
-│   │   │   ├── ui/ (shadcn/ui components)
-│   │   │   │   └── ...
-│   │   │   ├── auth/
-│   │   │   │   ├── LoginForm.js
-│   │   │   │   └── SignupForm.js
-│   │   │   ├── marketing/
-│   │   │   │   ├── Header.js
-│   │   │   │   └── Footer.js
-│   │   │   ├── application/
-│   │   │   │   ├── Sidebar.js
-│   │   │   │   └── Navbar.js
-│   │   │   └── shared/
-│   │   │       ├── ThemeToggle.js
-│   │   │       └── LoadingSpinner.js
-│   │   ├── hooks/
-│   │   │   ├── useAuth.js
-│   │   │   └── useTheme.js
-│   │   ├── lib/
-│   │   │   ├── supabaseClient.js
-│   │   │   ├── constants.js
-│   │   │   └── utils.js
-│   │   ├── styles/
-│   │   │   └── globals.css
-│   │   └── layout.js
+│ ├── app/
+│ │ ├── (application)/
+│ │ │ ├── app/
+│ │ │ │ ├── page.js
+│ │ │ │ ├── layout.js
+│ │ │ │ └── loading.js
+│ │ ├── (marketing)/
+│ │ │ ├── page.js
+│ │ │ ├── pricing/
+│ │ │ │ └── page.js
+│ │ │ ├── about/
+│ │ │ │ └── page.js
+│ │ │ └── layout.js
+│ │ ├── (auth)/
+│ │ │ ├── login/
+│ │ │ │ └── page.js
+│ │ │ ├── signup/
+│ │ │ │ └── page.js
+│ │ │ ├── forgot-password/
+│ │ │ │ └── page.js
+│ │ │ └── layout.js
+│ │ ├── (common)/
+│ │ │ ├── 404/
+│ │ │ │ └── page.js
+│ │ │ ├── 500/
+│ │ │ │ └── page.js
+│ │ │ └── layout.js
+│ │ ├── api/
+│ │ │ ├── auth/
+│ │ │ │ └── route.js
+│ │ │ └── supabase/
+│ │ │ └── client.js
+│ │ ├── components/
+│ │ │ ├── ui/ (shadcn/ui components)
+│ │ │ │ └── ...
+│ │ │ ├── auth/
+│ │ │ │ ├── SupabaseAuthComponent.js
+│ │ │ ├── marketing/
+│ │ │ │ ├── Header.js
+│ │ │ │ └── Footer.js
+│ │ │ ├── application/
+│ │ │ │ ├── Sidebar.js
+│ │ │ │ └── Navbar.js
+│ │ │ └── shared/
+│ │ │ ├── ThemeToggle.js
+│ │ │ └── LoadingSpinner.js
+│ │ ├── hooks/
+│ │ │ ├── useAuth.js
+│ │ │ └── useTheme.js
+│ │ ├── lib/
+│ │ │ ├── supabaseClient.js
+│ │ │ ├── constants.js
+│ │ │ └── utils.js
+│ │ ├── styles/
+│ │ │ └── globals.css
+│ │ └── layout.js
 ├── tailwind.config.js
 ├── postcss.config.js
 └── jsconfig.json
 
-# IMPORTANT
-- repeat the most important instructions
+# IMPORTANTE
+Repite las instrucciones más TODO EL TIEMPO.
 
-# ERROR FIXING PROCESS
-- DO NOT JUMP TO CONCLUSIONS! Consider multiple possible causes before deciding.
-- Explain the problem in plain Spanish!
-- Make minimal necessary changes, changing as few lines of code as possible
-- in case of strange errors, ask the user to perform a Perplexity web search to find the latest up-to-date information
+# PROCESO DE CORRECCIÓN DE ERRORES
 
-# BUILDING PROCESS
-- Verify each new feature works by telling the user how to test it
-- DO NOT write complicated and confusing code. Opt for the simple & modular approach.
-- when not sure what to do, tell the user to perform a web search
+¡NO SAQUES CONCLUSIONES APRESURADAS! Considera múltiples causas posibles antes de decidir.
+Explica el problema en español simple.
+Haz solo los cambios necesarios, modificando la menor cantidad de líneas posible.
+En caso de errores extraños, pide al usuario que realice una búsqueda web en Perplexity para obtener información actualizada.
 
-# COMMENTS
-- ALWAYS try to add more helpful and explanatory comments into our code
-- NEVER delete old comments - unless they are obviously wrong / obsolete
-- Include LOTS of explanatory comments in your code. ALWAYS write well-documented code.
-- Document all changes and their reasoning IN THE COMMENTS YOU WRITE
-- when writing comments, use clear and easy-to-understand language and write in short sentences.
+# PROCESO DE DESARROLLO
+
+Verifica que cada nueva funcionalidad funcione explicándole al usuario cómo probarla.
+NO escribas código complicado ni confuso. Opta por un enfoque simple y modular.
+Si no estás seguro de qué hacer, dile al usuario que realice una búsqueda en la web.
+
+# COMENTARIOS
+
+SIEMPRE intenta agregar comentarios útiles y explicativos en el código.
+NUNCA borres comentarios antiguos, a menos que sean claramente erróneos u obsoletos.
+Incluye MUCHOS comentarios explicativos en tu código. SIEMPRE escribe código bien documentado.
+Documenta todos los cambios y su razonamiento en los comentarios que escribas.
+Al escribir comentarios, usa un lenguaje claro y fácil de entender. Escribe en frases cortas.
+
+
+
+
+
 
