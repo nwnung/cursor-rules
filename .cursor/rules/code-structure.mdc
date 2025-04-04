@@ -1,0 +1,54 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Reglas de Estructura de Código
+
+## Organización de Carpetas
+```
+src/
+  ├── app/                   # App Router de Next.js
+  │   ├── api/               # Rutas API
+  │   ├── (auth)/            
+  │   └── (application)/         
+  ├── components/
+  │   ├── ui/                # Componentes de UI reutilizables
+  │   ├── layout/            # Componentes de estructura (header, footer, etc)
+  │   └── [feature]/         # Componentes específicos por característica
+  ├── hooks/                 # Custom hooks
+  ├── lib/                   # Utilidades y configuraciones
+  │   ├── supabase/          # Configuración de Supabase
+  │   ├── ai/                # Configuración de AI
+  │   └── utils/             # Funciones utilitarias
+  ├── schemas/               # Esquemas Zod
+  ├── store/                 # Stores de Zustand
+  ├── styles/                # Estilos globales
+  └── types/                 # Tipos TypeScript
+```
+
+## Convenciones de Archivos
+- Un componente por archivo
+- Nombrar archivos en kebab-case para componentes y utilidades
+- Prefijo `use-` para hooks personalizados
+- Sufijo `.server.ts` para código exclusivo del servidor
+- Sufijo `.client.ts` para código exclusivo del cliente
+- `index.ts` para re-exportaciones
+
+## Patrones de Importación
+- Importaciones absolutas desde la raíz con alias `@/`
+- Agrupar importaciones: React, Next.js, librerías externas, internas
+- No importar directamente desde `node_modules`
+- Evitar importaciones circulares
+
+## Server Components vs Client Components
+- Usar Server Components por defecto
+- Marcar Client Components con `'use client'` en primera línea
+- Mover lógica interactiva a Client Components específicos
+- Pasar datos desde Server Components a Client Components via props
+
+## Organización de Funciones
+- Hooks personalizados para lógica reutilizable
+- Funciones puras para transformaciones de datos
+- Separar lógica de UI de lógica de negocio
+- Una función, una responsabilidad

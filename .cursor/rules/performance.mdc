@@ -1,0 +1,46 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Reglas de Rendimiento
+
+## Optimización de Imágenes
+- Usar `next/image` para todas las imágenes
+- Definir dimensiones `width` y `height` para evitar CLS
+- Implementar lazy loading para imágenes bajo el fold
+- Utilizar placeholders o blur para carga progresiva
+
+## Renderización
+- Implementar virtualizacíón para listas largas (>20 items)
+- Usar `React.memo` para componentes que reciben props estáticas frecuentemente
+- Implementar Suspense y lazy loading para code splitting
+- Evitar re-renders innecesarios (useMemo, useCallback)
+- Prefetching de rutas críticas
+
+## Caché
+- Implementar SWR o React Query para caché de datos
+- Estrategias adecuadas de revalidación
+- Usar localStorage para datos persistentes no críticos
+- Cachear respuestas de API con estrategias apropiadas de invalidación
+- Configurar reglas de caché HTTP para assets estáticos
+
+## Métricas Core Web Vitals
+- LCP < 2.5s (Largest Contentful Paint)
+- FID < 100ms (First Input Delay)
+- CLS < 0.1 (Cumulative Layout Shift)
+- TTI < 3.8s (Time to Interactive)
+
+## Base de Datos
+- Índices para consultas frecuentes
+- Optimizar joins y relaciones
+- Limitar número de consultas por página
+- Usar Prisma para consultas eficientes
+- Aprovechar caching de Supabase
+
+## API
+- Implementar API routes con métodos HTTP apropiados
+- Response compression
+- Rate limiting para prevenir abusos
+- Batch requests para operaciones múltiples
+- Paginación para conjuntos grandes de datos

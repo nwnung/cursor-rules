@@ -1,0 +1,26 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+**Objetivo:** Este archivo sirve como un espejo del plan de implementación detallado en `final-plan.md`. Utiliza las casillas de verificación para rastrear visualmente qué pasos se han completado durante el desarrollo.
+
+**Instrucciones de Uso:**
+1.  El desarrollador (o la IA bajo supervisión) debe marcar la casilla `[x]` correspondiente a un paso **DESPUÉS** de que el código y las tareas asociadas a ese paso se hayan completado y verificado satisfactoriamente en el proyecto real.
+2.  Este archivo es **SOLO para seguimiento**. El plan detallado que guía la implementación sigue siendo `final-plan.md`.
+3.  Mantén este archivo sincronizado con el progreso real del proyecto.
+
+--- 
+
+**EJEMPLO DE USO**
+
+## Progreso de Implementación
+
+### Fase 1: Configuración del Proyecto y Base
+- [x] Paso 1: Inicializar Proyecto Next.js y Dependencias Básicas
+- [] Paso 2: Configurar Cliente Supabase (SSR)
+- [] Paso 3: Definir Esquema de Base de Datos como Tipos TypeScript
+- [] Paso 4: Configurar Políticas RLS en Supabase
+
+
+---

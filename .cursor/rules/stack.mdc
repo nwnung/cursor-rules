@@ -1,0 +1,86 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Reglas de Stack Tecnológico
+
+## Next.js 15
+- Usar App Router exclusivamente
+- Implementar Server Components para todo lo que no requiera interactividad cliente
+- Rutas API en `src/app/api/[ruta]/route.ts`
+- Metadata para SEO en cada página con `generateMetadata`
+- Layouts anidados para estructura de UI común
+- Loading states con `loading.tsx`
+- Error handling con `error.tsx`
+- Server Actions para mutaciones y lógica del lado del servidor iniciada por el cliente (ver `server-actions.mdc`).
+
+## TypeScript
+- Tipos estrictos, sin uso de `any` excepto en casos específicos documentados
+- Interfaces/tipos en archivos separados o junto al componente dependiendo de reutilización
+- Generics para componentes/hooks reutilizables
+- Enums para valores predefinidos
+- Tipado de respuestas API y esquemas de base de datos
+- Rutas de importación absolutas con alias `@/`
+
+## Supabase (2.20.5)
+- Cliente inicializado en `src/lib/supabase/client.ts` (cliente) y `src/lib/supabase/admin.ts` (servidor)
+- Autenticación implementada en `src/lib/auth.ts`
+- Tablas definidas como tipos en `src/types/database.ts` usando generador de tipos de Supabase
+- Bucket de almacenamiento con políticas de seguridad en `supabase/storage.sql`
+- RLS (Row Level Security) para todas las tablas
+- Hooks personalizados para operaciones comunes en `src/hooks/use-supabase-*.ts`
+- Usar Supabase Client (JS) principalmente para Autenticación, Almacenamiento (Storage) y Suscripciones Realtime.
+- Supabase Cookie Handling (`@supabase/ssr`)
+- Utilizar el paquete `@supabase/ssr` para gestionar las cookies de sesión de forma segura entre Server Components, Client Components, Route Handlers y Server Actions.
+- Crear instancias del cliente Supabase específicas para cada contexto:
+- `createBrowserClient` en Client Components.
+- `createServerClient` en Server Components, Route Handlers y Server Actions, pasando el `cookieStore` de Next.js (`cookies()`).
+- Implementar el middleware de Supabase en `src/middleware.ts` para refrescar la sesión del usuario en cada request.
+- Seguir la documentación oficial de Supabase para la integración con Next.js App Router.
+
+
+## Prisma ORM
+- Schema en `prisma/schema.prisma`
+- Cliente en `src/lib/prisma.ts`
+- Migraciones versionadas en git
+- Modelos correspondientes a tablas de Supabase
+- Seeding de datos en `prisma/seed.ts`
+- Relaciones bien definidas con cardinalidad apropiada
+- Usar Prisma Client como la herramienta principal y única para todas las operaciones CRUD de base de datos (lecturas y escrituras).
+
+
+## TailwindCSS y Shadcn UI
+- Configuración en `tailwind.config.ts`
+- Variables CSS en `src/styles/globals.css`
+- Componentes shadcn en `src/components/ui/`
+- Tema personalizado en `src/components/ui/theme-provider.tsx`
+- Extensiones de componentes en `src/components/[funcionalidad]/`
+
+## Temas
+- next/themes para cambio de tema claro/oscuro
+- Persistencia de preferencia de tema en localStorage
+- Detección inicial basada en preferencias del sistema
+- Variables CSS para tokens de color en modo claro/oscuro
+
+## Vercel AI SDK
+- Cliente en `src/lib/ai/client.ts`
+- Modelos y proveedores configurados en `.env`
+- Streams para UI responsiva
+- Componentes de chat en `src/components/ai/`
+- Funciones de generación en `src/lib/ai/generators/`
+
+## Zod
+- Esquemas en `src/schemas/`
+- Validación de formularios con react-hook-form + zod
+- Validación de API input/output
+- Inferencia de tipos a partir de esquemas
+
+## Zustand
+- Stores en `src/store/`
+- Un store por dominio funcional
+- Selectores para acceder a partes específicas del estado
+- Acciones para modificar estado
+- Persistencia con zustand/middleware cuando sea necesario
+
+

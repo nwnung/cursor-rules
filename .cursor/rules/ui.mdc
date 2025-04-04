@@ -1,0 +1,40 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Reglas de UI
+
+## Componentes
+- Todos los componentes UI deben estar en `src/components/ui`
+- Los componentes de shadcn/ui deben seguir el patrón de importación de `@/components/ui/[nombre]`
+- Cada componente debe tener su propio archivo y exportarse como default
+- Usa Tailwind CSS para estilos con clases utilitarias, evitando CSS separados
+
+## Diseño y Accesibilidad
+- Implementar diseño responsive para todos los componentes
+- Asegurar contraste adecuado (mínimo AA de WCAG)
+- Incluir atributos ARIA apropiados para cada componente
+- Todos los elementos interactivos deben ser navegables por teclado
+
+## Theming
+- Utilizar next/themes para gestión de temas claro/oscuro
+- Variables CSS para tokens de diseño en `src/styles/globals.css`
+- Paleta de colores primaria definida en `tailwind.config.ts`
+- Transiciones suaves (300ms) para cambios de tema
+
+## Shadcn/UI
+- Modificaciones a componentes shadcn deben hacerse en `src/components/ui/[nombre].tsx`
+- Mantener estilos consistentes con la guía de diseño del proyecto
+- Preferir extensión sobre modificación para componentes de la librería
+
+## Íconos
+- Usar Lucide React para íconos
+- Tamaños consistentes: sm (16px), md (20px), lg (24px), xl (32px)
+- Usar el mismo color que el texto contextual por defecto
+
+## Formularios
+- Usar componentes de formulario de shadcn/ui
+- Validación con Zod
+- Mostrar errores de validación inline
+- Estado de loading/success/error visual para todos los formularios

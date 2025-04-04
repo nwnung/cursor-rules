@@ -1,0 +1,49 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Reglas de Manejo de Errores
+
+## Estructura de Errores
+- Definir tipos de error en `src/types/errors.ts`
+- Crear clase de error base `AppError extends Error`
+- Subclases específicas: `ApiError`, `DatabaseError`, `AuthError`, `ValidationError`
+- Cada error debe tener: código, mensaje, metadata, timestamp
+
+## Captura y Manejo
+- Implementar error boundaries en `src/components/error-boundary.tsx`
+- Usar try/catch en todas las operaciones asíncronas
+- Estructura try/catch/finally consistente
+- No silenciar errores sin registro o manejo explícito
+
+## UI de Errores
+- Componente de fallback en `src/components/ui/error-fallback.tsx`
+- Mostrar mensajes amigables al usuario
+- Ofrecer acciones de recuperación cuando sea posible
+- Diferentes visualizaciones según nivel de error (notificación, modal, página completa)
+
+## Logging
+- Registrar todos los errores en consola con detalles en desarrollo
+- Incluir contexto: ruta, usuario (sin datos sensibles), acción, timestamp
+- Implementar middleware para errores de API en `src/middleware.ts`
+
+## Manejo de Errores de API
+- Respuestas de error estandarizadas:
+  ```typescript
+  {
+    statusCode: number;
+    message: string;
+    details?: any;
+    timestamp: string;
+    path: string;
+  }
+  ```
+- Utilizar HTTP status codes apropiados (4xx cliente, 5xx servidor)
+- Errores de validación deben incluir campo y razón específica
+
+## Prevención
+- Validación con Zod para todas las entradas de usuario
+- Tipado estricto con TypeScript (no any sin justificación)
+- Aserciones de tipo en límites de sistema (API, almacenamiento)

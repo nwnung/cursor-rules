@@ -1,0 +1,45 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## Frameworks y Herramientas
+- **Runner:** Jest (`jest`).
+- **Entorno:** Configurar Jest para Next.js usando `@next/jest`.
+- **Component Testing:** React Testing Library (`@testing-library/react`) para renderizar e interactuar con componentes React.
+- **DOM Assertions:** `@testing-library/jest-dom` para matchers de DOM útiles (p.ej., `toBeInTheDocument`, `toHaveTextContent`).
+- **Mocks:** Utilizar las funciones de mocking incorporadas de Jest (`jest.fn()`, `jest.mock()`, `jest.spyOn()`).
+    
+## Configuración
+- Archivo de configuración: `jest.config.js` (creado/modificado por `next/jest`).
+- Archivo de setup: `jest.setup.js` para importar polyfills, `@testing-library/jest-dom`, y configurar mocks globales si es necesario.
+- Configurar `moduleNameMapper` en `jest.config.js` para resolver alias de importación (p.ej., `@/*`).
+
+## Tipos de Pruebas (Enfoque Simple)
+- **Unitarias:** Probar lógica aislada:
+  - Funciones utilitarias (`src/lib/utils/`).
+  - Hooks personalizados simples (mockeando dependencias externas).
+  - Funciones puras.
+- **Integración (Componentes):** Probar componentes React:
+  - Renderizar el componente con `@testing-library/react`.
+  - Simular interacciones del usuario (`fireEvent`, `userEvent`).
+  - Verificar el resultado renderizado y los cambios de estado/efectos (mockeando llamadas a API/actions si es necesario).
+  - Probar la integración entre un componente y sus hooks asociados.
+- **(Opcional) E2E:** Considerar Playwright o Cypress para flujos críticos si el proyecto lo requiere (fuera del alcance de Jest).
+
+## Ubicación y Nomenclatura
+- Archivos de test junto al código fuente que prueban:
+  - `mi-componente.test.tsx` para `mi-componente.tsx`.
+  - `mi-hook.test.ts` para `mi-hook.ts`.
+- Alternativa: Carpeta `__tests__` dentro del directorio del módulo: `src/components/ui/__tests__/button.test.tsx`.
+- Usar `describe`, `it` / `test` de forma clara y descriptiva.
+
+## Mocks y Datos de Prueba
+- **Dependencias Externas:** Mockear módulos completos (p.ej., `src/lib/prisma.ts`, `src/lib/supabase/client.ts`, Server Actions) usando `jest.mock()`.
+- **Funciones Específicas:** Usar `jest.spyOn()` para mockear métodos específicos de objetos/módulos importados.
+- **Datos:** Crear datos de prueba simples o usar factorías si la complejidad aumenta. Evitar depender de datos reales o estructuras complejas en tests unitarios/integración.
+
+## Ejecución
+- Script en `package.json`: `npm run test` (o `yarn test`) para ejecutar todos los tests.
+- Opción para ejecutar en modo "watch": `npm run test:watch`.
+- **CI:** Integrar la ejecución de tests en el pipeline de CI. Hacer fallar el build si algún test falla.
