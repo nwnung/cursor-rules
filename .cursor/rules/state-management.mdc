@@ -1,0 +1,31 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Reglas de Gestión de Estado
+
+## Zustand
+- Un store por dominio funcional en `src/store/[dominio]-store.ts`
+- Separar estado de acciones
+- Implementar selectores para evitar re-renders innecesarios
+- Middleware para persistencia cuando sea necesario
+- Tipado estricto de estado y acciones
+
+## Estado Local
+- `useState` para estado local simple de componentes
+- `useReducer` para estados complejos o con múltiples subvalores relacionados
+- Evitar prop drilling con composición o context apropiado
+
+## React Context
+- Crear para estado que debe ser accesible en múltiples componentes
+- Implementar en `src/contexts/[nombre]-context.tsx`
+- Proveer en el nivel más bajo posible de la jerarquía
+- Separar lecturas de escrituras para evitar re-renders
+- Custom hooks para acceder al contexto: `useTheme`, `useAuth`
+
+## Estado de Formularios
+- Usar `react-hook-form` para gestión de formularios
+- Validación con Zod
+- Estado controlado para campos interactivos complejos
+- Separar estado de UI del estado de datos

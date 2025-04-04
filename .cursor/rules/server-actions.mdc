@@ -1,0 +1,25 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Reglas de Server Actions
+
+## Definición y Organización
+- Definir Server Actions en archivos dedicados dentro de `src/lib/actions/` o `src/app/_actions/`.
+  - Ejemplo: `src/lib/actions/user.actions.ts`, `src/lib/actions/post.actions.ts`
+- Usar la directiva `'use server';` al inicio del archivo o de la función exportada.
+- Evitar definir actions complejas inline dentro de componentes; preferir archivos separados para reutilización y testeo.
+- Nombrar las funciones de acción con camelCase y sufijo `Action` (opcional pero recomendado para claridad): `createUserAction`, `updatePostAction`.
+
+## Input y Output
+- **Validación de Entrada:** Validar *siempre* los argumentos de entrada de las actions usando Zod.
+- **Tipado de Retorno:** Definir un tipo de retorno explícito y consistente para las actions, típicamente un objeto que indique éxito/error y datos/mensaje.
+  ```typescript
+  type ActionResult<T = null> =
+    | { success: true; data: T }
+    | { success: false; error: { message: string; details?: any } };
+
+  export async function myAction(input: ValidatedInput): Promise<ActionResult<MyData>> {
+    // ...
+  }

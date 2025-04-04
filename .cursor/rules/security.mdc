@@ -1,0 +1,53 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Reglas de Seguridad
+
+## Autenticación y Autorización
+- Implementar autenticación con Supabase Auth
+- Middleware de autenticación en `src/middleware.ts`
+- RBAC (Role-Based Access Control) para permisos
+- Implementar Row Level Security (RLS) en Supabase
+- Separar rutas protegidas en grupo `(auth)`
+- Refresh tokens seguros y rotación apropiada
+
+## Datos Sensibles
+- No exponer claves API en el cliente
+- Encriptar datos sensibles en base de datos
+- No almacenar información financiera o de salud sin cumplimiento regulatorio
+- Sanitizar data user-generated antes de mostrarla
+- No exponer IDs internos en URLs o respuestas API
+
+## Protección contra Ataques
+- CSP (Content Security Policy) configurado
+- Protección CSRF en formularios
+- Rate limiting para endpoints sensibles
+- Validación de entrada en todos los endpoints
+- Sanitización de HTML para contenido generado por usuarios
+- Protección contra inyección SQL con Prisma/Supabase
+
+## Gestión de Sesiones
+- HTTP-only cookies para tokens
+- Timeouts de sesión apropiados
+- Opciones de "mantener sesión iniciada" seguras
+- Registro de dispositivos autorizados (opcional)
+- Capacidad de cerrar sesiones remotamente
+
+## Auditoría y Logging
+- Registrar eventos de seguridad críticos
+- Mantener historial de cambios sensibles
+- Detección de actividad sospechosa
+- Logs inaccesibles para usuarios normales
+- Rotación de logs y retención apropiada
+
+## CI/CD y Despliegue
+- Análisis de dependencias con vulnerabilidades
+- Escaneo de código estático en pipeline
+- Variables de entorno seguras en plataforma de despliegue
+- Separación de entornos (dev/staging/prod)
+- Despliegue con rollback rápido
+
+
+
